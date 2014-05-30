@@ -1,0 +1,86 @@
+Name         : kf5-knewstuff
+Version      : 4.99.0
+Release      : 1
+Group        : System/Base
+License      : LGPL2+
+Summary      : KDE Frameworks 5 Tier 3 module for downloading application assets
+Description  : |
+  KDE Frameworks 5 Tier 3 module for downloading application assets
+URL          : http://www.kde.org
+SetupOptions : -q -n %{name}-%{version}/upstream
+
+Sources:
+    - "%{name}-%{version}.tar.xz"
+
+RpmLintIgnore:
+    - devel-file-in-non-devel-package
+    - no-changelogname-tag
+    - library-without-ldconfig-postin
+    - library-without-ldconfig-postun
+
+Configure    : none
+Builder      : none
+
+PkgBR:
+    - kf5-rpm-macros
+    - extra-cmake-modules
+    - qt5-tools
+    - kf5-karchive-devel
+    - kf5-kcompletion-devel
+    - kf5-kconfig-devel
+    - kf5-kcoreaddons-devel
+    - kf5-ki18n-devel
+    - kf5-kiconthemes-devel
+    - kf5-kio-devel
+    - kf5-kitemviews-devel
+    - kf5-ktextwidgets-devel
+    - kf5-kwidgetsaddons-devel
+    - kf5-kxmlgui-devel
+PkgConfigBR:
+    - Qt5Core
+    - Qt5DBus
+    - Qt5Xml
+    - Qt5Network
+    - Qt5Gui
+    - Qt5Widgets
+    - Qt5Concurrent
+    - Qt5Test
+    - Qt5XmlPatterns
+Requires:
+    - kf5-filesystem
+
+RequiresPost:
+    - /sbin/ldconfig
+RequiresPostUn:
+    - /sbin/ldconfig
+
+Files:
+    - "%doc COPYING.LIB README.md"
+    - "%{_kf5_libdir}/libKF5NewStuff.so.*"
+    - "%{_kf5_datadir}/kf5/knewstuff/"
+
+SubPackages:
+    - Name: devel
+      Group: Development/Libraries
+      Summary: Development files for %{name}
+      Description: |
+        The %{name}-devel package contains the files necessary to develop applications
+        that use %{name}.
+      Requires:
+         - kf5-karchive-devel
+         - kf5-kcompletion-devel
+         - kf5-kconfig-devel
+         - kf5-kcoreaddons-devel
+         - kf5-ki18n-devel
+         - kf5-kiconthemes-devel
+         - kf5-kio-devel
+         - kf5-kitemviews-devel
+         - kf5-ktextwidgets-devel
+         - kf5-kwidgetsaddons-devel
+         - kf5-kxmlgui-devel 
+      Files:
+          - "%{_kf5_includedir}/knewstuff_version.h"
+          - "%{_kf5_includedir}/KNewStuff3"
+          - "%{_kf5_libdir}/libKF5NewStuff.so"
+          - "%{_kf5_libdir}/cmake/KF5NewStuff"
+          - "%{_datadir}/qt5/mkspecs/modules/*.pri"
