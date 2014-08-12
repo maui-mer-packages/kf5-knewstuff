@@ -1,5 +1,5 @@
-Name         : kf5-knewstuff
-Version      : 5.0.0
+Name         : knewstuff
+Version      : 5.1.0
 Release      : 1
 Group        : System/Base
 License      : LGPL2+
@@ -25,17 +25,17 @@ PkgBR:
     - kf5-rpm-macros
     - extra-cmake-modules
     - qt5-tools
-    - kf5-karchive-devel
-    - kf5-kcompletion-devel
-    - kf5-kconfig-devel
-    - kf5-kcoreaddons-devel
-    - kf5-ki18n-devel
-    - kf5-kiconthemes-devel
-    - kf5-kio-devel
-    - kf5-kitemviews-devel
-    - kf5-ktextwidgets-devel
-    - kf5-kwidgetsaddons-devel
-    - kf5-kxmlgui-devel
+    - karchive-devel
+    - kcompletion-devel
+    - kconfig-devel
+    - kcoreaddons-devel
+    - ki18n-devel
+    - kiconthemes-devel
+    - kio-devel
+    - kitemviews-devel
+    - ktextwidgets-devel
+    - kwidgetsaddons-devel
+    - kxmlgui-devel
 PkgConfigBR:
     - Qt5Core
     - Qt5DBus
@@ -57,7 +57,7 @@ RequiresPostUn:
 Files:
     - "%doc COPYING.LIB README.md"
     - "%{_kf5_libdir}/libKF5NewStuff.so.*"
-    - "%{_kf5_datadir}/kf5/knewstuff/"
+    - "%{_kf5_datadir}/knewstuff/"
 
 SubPackages:
     - Name: devel
@@ -67,20 +67,20 @@ SubPackages:
         The %{name}-devel package contains the files necessary to develop applications
         that use %{name}.
       Requires:
-         - kf5-karchive-devel
-         - kf5-kcompletion-devel
-         - kf5-kconfig-devel
-         - kf5-kcoreaddons-devel
-         - kf5-ki18n-devel
-         - kf5-kiconthemes-devel
-         - kf5-kio-devel
-         - kf5-kitemviews-devel
-         - kf5-ktextwidgets-devel
-         - kf5-kwidgetsaddons-devel
-         - kf5-kxmlgui-devel 
+         - karchive-devel
+         - kcompletion-devel
+         - kconfig-devel
+         - kcoreaddons-devel
+         - ki18n-devel
+         - kiconthemes-devel
+         - kio-devel
+         - kitemviews-devel
+         - ktextwidgets-devel
+         - kwidgetsaddons-devel
+         - kxmlgui-devel 
       Files:
           - "%{_kf5_includedir}/knewstuff_version.h"
           - "%{_kf5_includedir}/KNewStuff3"
           - "%{_kf5_libdir}/libKF5NewStuff.so"
-          - "%{_kf5_libdir}/cmake/KF5NewStuff"
-          - "%{_datadir}/qt5/mkspecs/modules/*.pri"
+          - "%{_kf5_cmakedir}/KF5NewStuff"
+          - "%{_kf5_mkspecsdir}/*.pri"
