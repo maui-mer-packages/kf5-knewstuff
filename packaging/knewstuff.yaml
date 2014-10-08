@@ -7,7 +7,6 @@ Summary      : KDE Frameworks 5 Tier 3 module for downloading application assets
 Description  : |
   KDE Frameworks 5 Tier 3 module for downloading application assets
 URL          : http://www.kde.org
-SetupOptions : -q -n %{name}-%{version}/upstream
 
 Sources:
     - "%{name}-%{version}.tar.xz"
